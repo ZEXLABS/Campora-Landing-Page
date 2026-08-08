@@ -1,0 +1,29 @@
+{
+  "entities": {
+    "waitlistUsers": {
+      "title": "Waitlist Users",
+      "description": "Student waitlist registrations stored in Firebase Firestore",
+      "type": "object",
+      "properties": {
+        "fullName": { "type": "string", "description": "Student full name" },
+        "email": { "type": "string", "description": "Student email address" },
+        "phone": { "type": "string", "description": "Optional phone number" },
+        "university": { "type": "string", "description": "University or tertiary institution name" },
+        "level": { "type": "string", "description": "Study level (Undergraduate, Postgraduate, etc.)" },
+        "gender": { "type": "string", "description": "Optional gender" },
+        "accommodationNeed": { "type": "string", "description": "Looking for accommodation (Yes/No)" },
+        "accommodationTimeline": { "type": "string", "description": "Timeline needed (Immediately, 1-3 months, etc.)" },
+        "referralSource": { "type": "string", "description": "How they heard about Campora" },
+        "position": { "type": "number", "description": "Waitlist queue index" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Timestamp when joined" }
+      },
+      "required": ["fullName", "email", "university", "level"]
+    }
+  },
+  "firestore": {
+    "/waitlistUsers/{userId}": {
+      "schema": "waitlistUsers",
+      "description": "Public waitlist collection for student registrations"
+    }
+  }
+}
