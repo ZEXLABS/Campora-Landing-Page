@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { WaitlistUser } from '../types';
-import { Share2, MessageCircle, Twitter, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Share2, MessageCircle, Twitter, Sparkles, Check, Copy, Mail } from 'lucide-react';
 
 interface SuccessStateProps {
   user: WaitlistUser;
@@ -9,7 +9,8 @@ interface SuccessStateProps {
 }
 
 export const SuccessState: React.FC<SuccessStateProps> = ({ user }) => {
-  const shareUrl = window.location.origin + window.location.pathname;
+  const [copied, setCopied] = useState(false);
+  const shareUrl = 'https://campora-landing-page.vercel.app/';
 
   // Trigger confetti celebration on load
   useEffect(() => {
@@ -37,17 +38,22 @@ export const SuccessState: React.FC<SuccessStateProps> = ({ user }) => {
     window.open(url, '_blank');
   };
 
-  const handleNativeShare = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: 'Join Campora Waitlist',
-        text: shareText,
-        url: shareUrl,
-      }).catch(() => {});
+  const handleCopyLink = () => {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2500);
+      }).catch(() => {
+        fallbackCopy();
+      });
     } else {
-      navigator.clipboard.writeText(shareUrl);
-      alert('Campora link copied to clipboard!');
+      fallbackCopy();
     }
+  };
+
+  const fallbackCopy = () => {
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
   };
 
   return (
@@ -64,30 +70,24 @@ export const SuccessState: React.FC<SuccessStateProps> = ({ user }) => {
         </h2>
 
         {/* Sub Copy */}
-        <p className="text-base sm:text-lg text-[#57534E] mb-8 max-w-lg mx-auto">
-          We'll send you first priority notification as soon as verified hostels near <strong className="text-[#0F172A]">{user.university}</strong> are ready!
+        <p className="text-base sm:text-lg text-[#57534E] mb-6 max-w-lg mx-auto">
+          We'll notify you as soon as verified hostels near <strong className="text-[#0F172A]">{user.university}</strong> are ready!
         </p>
 
-        {/* Queue Position Box */}
-        <div className="bg-[#FAF9F6] p-6 sm:p-8 rounded-2xl border border-[#E7E5E4] mb-8 shadow-2xs">
-          <span className="text-xs font-bold text-[#78716C] uppercase tracking-wider block mb-1">
-            Current Queue Position
-          </span>
-          <div className="text-4xl sm:text-5xl font-black text-[#0F172A] tracking-tight mb-2">
-            #{user.position}
+        {/* 24-Hour Email Notice Box */}
+        <div className="mb-8 p-4 sm:p-5 bg-[#FAF9F6] border border-[#0D9488]/30 rounded-2xl flex items-start gap-3.5 text-left shadow-2xs">
+          <div className="w-10 h-10 rounded-xl bg-[#0D9488]/10 text-[#0D9488] flex items-center justify-center shrink-0 mt-0.5 border border-[#0D9488]/20">
+            <Mail className="w-5 h-5" />
           </div>
-          <p className="text-xs text-[#78716C] mb-5">
-            Registered for <strong className="text-[#0F172A]">{user.university}</strong> &bull; Level: <span className="font-semibold text-[#0F172A]">{user.level}</span>
-          </p>
-
-          {/* Sync & Email Status Pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F0FDF4] border border-emerald-200 text-xs font-semibold text-emerald-800">
-            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-            <span>Welcome notification sent to <strong>{user.email}</strong></span>
+          <div>
+            <h4 className="text-sm font-bold text-[#0F172A] mb-1">Check Your Email Inbox</h4>
+            <p className="text-xs sm:text-sm text-[#57534E] leading-relaxed">
+              You will receive a welcome email within <strong>24 hours</strong> at <strong className="text-[#0F172A]">{user.email}</strong>. Please ensure you also check your <strong>spam/junk folder</strong> in case it lands there!
+            </p>
           </div>
         </div>
 
-        {/* Notification & Community Share Box */}
+        {/* What Happens Next & Social Share Box */}
         <div className="bg-[#0F172A] text-white p-6 sm:p-8 rounded-2xl text-left shadow-lg relative overflow-hidden">
           <h3 className="text-2xl font-bold tracking-tight text-white mb-2">
             What happens next?
@@ -95,6 +95,33 @@ export const SuccessState: React.FC<SuccessStateProps> = ({ user }) => {
           <p className="text-xs sm:text-sm text-slate-300 mb-6">
             Our campus verification team is currently inspecting self-contains, single rooms, and flat hostels around <strong>{user.university}</strong>. You'll receive instant notification emails as verified listings go live.
           </p>
+
+          {/* Direct Copyable Link Bar with Animation */}
+          <div className="mb-6 p-3 bg-slate-900 border border-slate-700/80 rounded-xl flex items-center justify-between gap-3">
+            <span className="font-mono text-xs text-[#0D9488] truncate select-all">
+              {shareUrl}
+            </span>
+            <button
+              onClick={handleCopyLink}
+              className={`py-1.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shrink-0 ${
+                copied
+                  ? 'bg-emerald-500 text-white scale-105 shadow-md'
+                  : 'bg-[#0D9488] hover:bg-[#0F766E] text-white'
+              }`}
+            >
+              {copied ? (
+                <>
+                  <Check className="w-3.5 h-3.5 animate-bounce" />
+                  <span>Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-3.5 h-3.5" />
+                  <span>Copy Link</span>
+                </>
+              )}
+            </button>
+          </div>
 
           {/* Social Share Buttons */}
           <div>
@@ -119,11 +146,24 @@ export const SuccessState: React.FC<SuccessStateProps> = ({ user }) => {
               </button>
 
               <button
-                onClick={handleNativeShare}
-                className="py-2.5 px-3 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 rounded-xl text-xs font-bold transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                onClick={handleCopyLink}
+                className={`py-2.5 px-3 border rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                  copied
+                    ? 'bg-emerald-600/20 text-emerald-400 border-emerald-500/40'
+                    : 'bg-slate-800 hover:bg-slate-700 text-slate-200 border-slate-700'
+                }`}
               >
-                <Share2 className="w-4 h-4" />
-                <span>Share App</span>
+                {copied ? (
+                  <>
+                    <Check className="w-4 h-4 text-emerald-400" />
+                    <span>Copied</span>
+                  </>
+                ) : (
+                  <>
+                    <Share2 className="w-4 h-4" />
+                    <span>Share App</span>
+                  </>
+                )}
               </button>
             </div>
           </div>

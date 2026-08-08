@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { WaitlistUser } from './types';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
@@ -21,24 +21,16 @@ export default function App() {
   const [isAdminOpen, setIsAdminOpen] = useState(false);
   const [legalModalType, setLegalModalType] = useState<'privacy' | 'terms' | 'contact' | null>(null);
 
-  // Restore saved session from localStorage if available
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem('campora_user');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (parsed && parsed.email) {
-          setCurrentUser(parsed);
-        }
-      }
-    } catch (e) {
-      // Ignore storage errors
-    }
-  }, []);
+  const handleWaitlistSuccess = (user: WaitlistUser) => {
+    setCurrentUser(user);
+    setTimeout(() => {
+      const el = document.getElementById('success-section');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
 
   const scrollToWaitlist = () => {
     if (currentUser) {
-      // User is already registered and seeing success state
       const el = document.getElementById('success-section');
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     } else {
@@ -83,7 +75,7 @@ export default function App() {
           {currentUser ? (
             <SuccessState user={currentUser} />
           ) : (
-            <WaitlistForm onSuccess={(user) => setCurrentUser(user)} />
+            <WaitlistForm onSuccess={handleWaitlistSuccess} />
           )}
         </div>
 
@@ -107,7 +99,7 @@ export default function App() {
       <CheckPositionModal
         isOpen={isCheckModalOpen}
         onClose={() => setIsCheckModalOpen(false)}
-        onUserFound={(user) => setCurrentUser(user)}
+        onUserFound={handleWaitlistSuccess}
       />
 
       {/* Protected Admin Portal */}
