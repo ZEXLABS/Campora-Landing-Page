@@ -27,10 +27,6 @@ export const HowItWorks: React.FC = () => {
     <section id="how-it-works" className="py-12 sm:py-20 px-4 sm:px-6 bg-[#FAF9F6]">
       <div className="max-w-5xl mx-auto">
         <div className="text-center max-w-xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-[#E7E5E4] text-xs font-semibold text-[#0D9488] mb-2">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>3-Step Process</span>
-          </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight">
             How Campora Works
           </h2>

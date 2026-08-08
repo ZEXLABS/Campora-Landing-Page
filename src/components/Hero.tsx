@@ -36,14 +36,6 @@ export const Hero: React.FC<HeroProps> = ({ onJoinClick, onAboutClick }) => {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#e7e5e415_1px,transparent_1px),linear-gradient(to_bottom,#e7e5e415_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
 
       <div className="max-w-5xl mx-auto text-center relative z-10">
-        {/* Top Status Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#E7E5E4] text-xs font-semibold text-[#0F172A] mb-6 shadow-xs hover:border-[#0D9488]/40 transition-colors">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#0D9488] animate-pulse" />
-          <span className="font-bold text-[#0D9488]">CAMPORA NIGERIA</span>
-          <span className="text-[#A8A29E]">•</span>
-          <span>Early Access Student Waitlist Open</span>
-        </div>
-
         {/* Hero Title */}
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#0F172A] tracking-tight leading-[1.14] mb-5">
           The smart way to find student housing in Nigeria. <br className="hidden sm:block" />
@@ -85,16 +77,7 @@ export const Hero: React.FC<HeroProps> = ({ onJoinClick, onAboutClick }) => {
         <div className="bg-white rounded-2xl sm:rounded-3xl border border-[#E7E5E4] p-5 sm:p-8 shadow-sm text-left max-w-4xl mx-auto">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-[#E7E5E4]">
             <div>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="px-2.5 py-0.5 rounded-md bg-[#FAF9F6] border border-[#E7E5E4] text-[11px] font-bold uppercase tracking-wider text-[#0F172A]">
-                  Platform Status: Pre-Launch
-                </span>
-                <span className="text-xs font-semibold text-[#0D9488] flex items-center gap-1">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  Building for 2026/2027 Session
-                </span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-extrabold text-[#0F172A]">
+              <h3 className="text-lg sm:text-xl font-extrabold text-[#0F172A] mb-1">
                 Supporting 170+ Nigerian Tertiary Institutions
               </h3>
             </div>

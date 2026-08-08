@@ -9,11 +9,6 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onJoinClick }) => {
   return (
     <section className="py-16 sm:py-24 px-4 sm:px-6 bg-[#0F172A] text-white relative overflow-hidden">
       <div className="max-w-4xl mx-auto text-center relative z-10">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800 text-slate-300 text-xs font-semibold mb-6 border border-slate-700">
-          <Sparkles className="w-3.5 h-3.5 text-[#0D9488]" />
-          <span>Early Access Reservations</span>
-        </div>
-
         <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4 text-white">
           Your next place should be easier to find.
         </h2>

@@ -27,10 +27,6 @@ export const PlatformOverview: React.FC<PlatformOverviewProps> = ({ onJoinClick 
         
         {/* SECTION 1: WHAT WE ARE & WHAT WE DO */}
         <div className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF9F6] border border-[#E7E5E4] text-xs font-semibold text-[#0D9488] mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>About Campora Nigeria</span>
-          </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight">
             What We Are &amp; What We Do
           </h2>
@@ -151,10 +147,6 @@ export const PlatformOverview: React.FC<PlatformOverviewProps> = ({ onJoinClick 
         {/* NIGERIAN INSTITUTIONS COVERAGE */}
         <div className="bg-[#FAF9F6] p-6 sm:p-10 rounded-3xl border border-[#E7E5E4]">
           <div className="max-w-3xl mx-auto text-center mb-8">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-[#E7E5E4] text-xs font-semibold text-[#0F172A] mb-3">
-              <Building2 className="w-3.5 h-3.5 text-[#0D9488]" />
-              <span>Full Countrywide Coverage</span>
-            </div>
             <h3 className="text-xl sm:text-3xl font-extrabold text-[#0F172A]">
               Supporting All Nigerian Tertiary Institutions
             </h3>

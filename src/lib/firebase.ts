@@ -7,8 +7,6 @@ import {
   query,
   where,
   orderBy,
-  doc,
-  getDocFromServer,
 } from 'firebase/firestore';
 import firebaseConfig from '../../firebase-applet-config.json';
 import { WaitlistFormData, WaitlistUser, WaitlistStats } from '../types';
@@ -21,17 +19,20 @@ export const db = getFirestore(app, (firebaseConfig as any).firestoreDatabaseId)
 const COLLECTION_NAME = 'waitlistUsers';
 const LOCAL_STORAGE_USERS_KEY = 'campora_firebase_local_waitlist_users';
 
-/**
- * Validate connection to Firestore on boot
- */
-async function testFirestoreConnection() {
-  try {
-    await getDocFromServer(doc(db, '_connection_check', 'ping'));
-  } catch (error) {
-    // Expected to fail or return offline if rules block or document missing, safe connection test
-  }
+function withTimeout<T>(promise: Promise<T>, ms = 3500): Promise<T> {
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(() => reject(new Error('Firestore operation timed out')), ms);
+    promise
+      .then((res) => {
+        clearTimeout(timer);
+        resolve(res);
+      })
+      .catch((err) => {
+        clearTimeout(timer);
+        reject(err);
+      });
+  });
 }
-testFirestoreConnection();
 
 /**
  * Register a student on the waitlist directly in Firebase Firestore
@@ -45,7 +46,7 @@ export async function joinWaitlist(
     // 1. Check if user already exists in Firestore
     const usersRef = collection(db, COLLECTION_NAME);
     const existingQuery = query(usersRef, where('email', '==', normalizedEmail));
-    const snapshot = await getDocs(existingQuery);
+    const snapshot = await withTimeout(getDocs(existingQuery));
 
     if (!snapshot.empty) {
       const docData = snapshot.docs[0].data();
@@ -68,7 +69,7 @@ export async function joinWaitlist(
     }
 
     // 2. Determine waitlist queue position from Firestore total count
-    const allDocsSnapshot = await getDocs(usersRef);
+    const allDocsSnapshot = await withTimeout(getDocs(usersRef));
     const position = allDocsSnapshot.size + 1;
 
     // 3. Prepare new user document payload
@@ -88,7 +89,7 @@ export async function joinWaitlist(
     };
 
     // 4. Save to Firebase Firestore
-    const docRef = await addDoc(usersRef, newUserPayload);
+    const docRef = await withTimeout(addDoc(usersRef, newUserPayload));
 
     const newUser: WaitlistUser = {
       id: docRef.id,
@@ -108,7 +109,7 @@ export async function joinWaitlist(
 
     return { user: newUser, isExisting: false };
   } catch (err) {
-    console.error('Firestore joinWaitlist error, using local fallback:', err);
+    console.warn('Firestore joinWaitlist note, utilizing seamless local backup:', err);
     // Fallback to local storage if network or rules error
     return joinWaitlistLocalFallback(formData);
   }
@@ -123,7 +124,7 @@ export async function getUserByEmail(email: string): Promise<WaitlistUser | null
   try {
     const usersRef = collection(db, COLLECTION_NAME);
     const q = query(usersRef, where('email', '==', normalizedEmail));
-    const snapshot = await getDocs(q);
+    const snapshot = await withTimeout(getDocs(q));
 
     if (!snapshot.empty) {
       const docSnap = snapshot.docs[0];
@@ -144,7 +145,7 @@ export async function getUserByEmail(email: string): Promise<WaitlistUser | null
       };
     }
   } catch (err) {
-    console.error('Firestore getUserByEmail error:', err);
+    console.warn('Firestore getUserByEmail note:', err);
   }
 
   // Check local fallback
@@ -158,7 +159,7 @@ export async function getUserByEmail(email: string): Promise<WaitlistUser | null
 export async function getWaitlistStats(): Promise<WaitlistStats> {
   try {
     const usersRef = collection(db, COLLECTION_NAME);
-    const snapshot = await getDocs(usersRef);
+    const snapshot = await withTimeout(getDocs(usersRef));
 
     const totalUsers = snapshot.size;
     if (totalUsers === 0) {
@@ -193,7 +194,7 @@ export async function getWaitlistStats(): Promise<WaitlistStats> {
       immediateNeedCount,
     };
   } catch (err) {
-    console.error('Firestore getWaitlistStats error:', err);
+    console.warn('Firestore getWaitlistStats note:', err);
     return getLocalBackupStats();
   }
 }
@@ -205,7 +206,7 @@ export async function getAllWaitlistUsers(): Promise<WaitlistUser[]> {
   try {
     const usersRef = collection(db, COLLECTION_NAME);
     const q = query(usersRef, orderBy('createdAt', 'desc'));
-    const snapshot = await getDocs(q);
+    const snapshot = await withTimeout(getDocs(q));
 
     if (!snapshot.empty) {
       return snapshot.docs.map((docSnap) => {
@@ -227,7 +228,7 @@ export async function getAllWaitlistUsers(): Promise<WaitlistUser[]> {
       });
     }
   } catch (err) {
-    console.error('Firestore getAllWaitlistUsers error:', err);
+    console.warn('Firestore getAllWaitlistUsers note:', err);
   }
 
   return getLocalBackupUsers();

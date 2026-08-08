@@ -86,10 +86,6 @@ export const WaitlistForm: React.FC<WaitlistFormProps> = ({ onSuccess }) => {
     <section id="waitlist-form" className="py-12 sm:py-20 px-4 sm:px-6 bg-white border-t border-[#E7E5E4]">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FAF9F6] border border-[#E7E5E4] text-xs font-semibold text-[#0D9488] mb-3">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Priority Access for Nigerian Students</span>
-          </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight">
             Get early access to Campora Nigeria
           </h2>

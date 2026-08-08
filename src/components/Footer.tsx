@@ -14,7 +14,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onAdminClick }) => 
         <div className="text-center md:text-left">
           <Logo className="justify-center md:justify-start" />
           <p className="text-xs text-[#78716C] mt-2 font-medium">
-            Student accommodation, simplified.
+            Verified student accommodation, simplified.
           </p>
         </div>
 
@@ -46,25 +46,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onAdminClick }) => 
           </button>
         </div>
 
-        {/* Right: Social & Copyright */}
+        {/* Right: Copyright */}
         <div className="flex items-center gap-4 text-xs text-[#78716C]">
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#0F172A] transition-colors"
-          >
-            Instagram
-          </a>
-          <a
-            href="https://x.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#0F172A] transition-colors"
-          >
-            X (Twitter)
-          </a>
-          <span>&copy; {new Date().getFullYear()} Campora.</span>
+          <span>&copy; {new Date().getFullYear()} Campora. All Rights Reserved.</span>
         </div>
       </div>
     </footer>
