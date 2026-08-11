@@ -26,7 +26,7 @@ export const SocialProof: React.FC = () => {
                   {stats.totalUsers} {stats.totalUsers === 1 ? 'Student' : 'Students'}
                 </div>
                 <div className="text-xs text-[#78716C]">
-                  On the Campora Waitlist
+                  On the Dormiqa Waitlist
                 </div>
               </div>
             </div>

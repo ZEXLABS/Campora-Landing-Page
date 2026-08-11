@@ -6,7 +6,7 @@ export const Benefits: React.FC = () => {
     {
       icon: Sparkles,
       title: 'Early access',
-      description: 'Get access before Campora officially launches.'
+      description: 'Get access before Dormiqa officially launches.'
     },
     {
       icon: Zap,
@@ -16,11 +16,11 @@ export const Benefits: React.FC = () => {
     {
       icon: Bell,
       title: 'Launch notifications',
-      description: 'Know when Campora goes live at your university.'
+      description: 'Know when Dormiqa goes live at your university.'
     },
     {
       icon: MessageSquareQuote,
-      title: 'Shape Campora',
+      title: 'Shape Dormiqa',
       description: 'Help us build the accommodation experience students actually need.'
     }
   ];

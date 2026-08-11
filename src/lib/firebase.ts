@@ -64,6 +64,7 @@ export async function joinWaitlist(
         position: docData.position || 1,
         createdAt: docData.createdAt || new Date().toISOString(),
       };
+      localStorage.setItem('dormiqa_user', JSON.stringify(existingUser));
       localStorage.setItem('campora_user', JSON.stringify(existingUser));
       return { user: existingUser, isExisting: true };
     }
@@ -97,6 +98,7 @@ export async function joinWaitlist(
     };
 
     // Save to local storage for instant session persistence
+    localStorage.setItem('dormiqa_user', JSON.stringify(newUser));
     localStorage.setItem('campora_user', JSON.stringify(newUser));
 
     // Save copy to local users array backup
@@ -259,6 +261,7 @@ function joinWaitlistLocalFallback(formData: WaitlistFormData): { user: Waitlist
 
   const existing = localUsers.find((u) => u.email.toLowerCase() === normalizedEmail);
   if (existing) {
+    localStorage.setItem('dormiqa_user', JSON.stringify(existing));
     localStorage.setItem('campora_user', JSON.stringify(existing));
     return { user: existing, isExisting: true };
   }
@@ -281,6 +284,7 @@ function joinWaitlistLocalFallback(formData: WaitlistFormData): { user: Waitlist
 
   localUsers.unshift(newUser);
   saveLocalBackupUsers(localUsers);
+  localStorage.setItem('dormiqa_user', JSON.stringify(newUser));
   localStorage.setItem('campora_user', JSON.stringify(newUser));
   sendWelcomeEmail(newUser);
 

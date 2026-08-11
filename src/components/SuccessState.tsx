@@ -26,7 +26,7 @@ export const SuccessState: React.FC<SuccessStateProps> = ({ user }) => {
     }
   }, []);
 
-  const shareText = `I just joined the Campora waitlist to find verified student accommodation near ${user.university}! Check it out:`;
+  const shareText = `I just joined the Dormiqa waitlist to find verified student accommodation near ${user.university}! Check it out:`;
 
   const handleWhatsAppShare = () => {
     const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(`${shareText} ${shareUrl}`)}`;
@@ -126,7 +126,7 @@ export const SuccessState: React.FC<SuccessStateProps> = ({ user }) => {
           {/* Social Share Buttons */}
           <div>
             <label className="block text-xs font-semibold text-slate-400 mb-2">
-              Tell your friends about Campora
+              Tell your friends about Dormiqa
             </label>
             <div className="grid grid-cols-3 gap-2">
               <button

@@ -28,7 +28,7 @@ export const Logo: React.FC<LogoProps> = ({ className = '', iconOnly = false }) 
 
       {!iconOnly && (
         <span className="text-xl font-bold tracking-tight text-[#0F172A]">
-          Campora
+          Dormiqa
         </span>
       )}
     </div>

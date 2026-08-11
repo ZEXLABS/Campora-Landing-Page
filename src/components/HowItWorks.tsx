@@ -19,7 +19,7 @@ export const HowItWorks: React.FC = () => {
       num: '03',
       icon: BellRing,
       title: 'Get First Priority at Launch',
-      desc: 'When Campora launches at your campus, you get exclusive priority invites to view physically verified, scam-free student hostels near your gate.'
+      desc: 'When Dormiqa launches at your campus, you get exclusive priority invites to view physically verified, scam-free student hostels near your gate.'
     }
   ];
 
@@ -28,7 +28,7 @@ export const HowItWorks: React.FC = () => {
       <div className="max-w-5xl mx-auto">
         <div className="text-center max-w-xl mx-auto mb-10 sm:mb-14">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight">
-            How Campora Works
+            How Dormiqa Works
           </h2>
           <p className="text-sm text-[#78716C] mt-2">
             A seamless experience built to save you time, money, and stress.

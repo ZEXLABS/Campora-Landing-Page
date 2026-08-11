@@ -34,7 +34,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose 
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password.trim() === 'Campora2026') {
+    const cleanPwd = password.trim();
+    if (cleanPwd === 'Dormiqa26/27' || cleanPwd.toLowerCase() === 'dormiqa26/27') {
       setIsAuthenticated(true);
       setAuthError('');
     } else {
@@ -82,7 +83,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose 
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement('a');
     link.setAttribute('href', encodedUri);
-    link.setAttribute('download', `campora_firebase_waitlist_${new Date().toISOString().slice(0, 10)}.csv`);
+    link.setAttribute('download', `dormiqa_firebase_waitlist_${new Date().toISOString().slice(0, 10)}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -95,7 +96,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ isOpen, onClose 
         <div className="bg-[#0F172A] text-white px-6 py-4 flex items-center justify-between border-b border-slate-800">
           <div className="flex items-center gap-2.5">
             <Shield className="w-5 h-5 text-[#0D9488]" />
-            <h3 className="font-bold text-base tracking-tight">Campora Firebase Waitlist Admin</h3>
+            <h3 className="font-bold text-base tracking-tight">Dormiqa Firebase Waitlist Admin</h3>
           </div>
           <button
             onClick={onClose}

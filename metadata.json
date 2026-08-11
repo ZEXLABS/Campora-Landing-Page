@@ -1,5 +1,5 @@
 {
-  "name": "Campora",
+  "name": "Dormiqa",
   "description": "Student accommodation waitlist and discovery platform",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]

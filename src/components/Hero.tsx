@@ -46,7 +46,7 @@ export const Hero: React.FC<HeroProps> = ({ onJoinClick, onAboutClick }) => {
 
         {/* Hero Subtitle */}
         <p className="text-base sm:text-lg text-[#57534E] font-normal leading-relaxed max-w-2xl mx-auto mb-8">
-          Campora is a brand new platform launching to connect students in Nigerian Universities, Polytechnics, and Colleges with verified off-campus hostels, self-contains, and student suites — directly near campus gates.
+          Dormiqa is a brand new platform launching to connect students in Nigerian Universities, Polytechnics, and Colleges with verified off-campus hostels, self-contains, and student suites — directly near campus gates.
         </p>
 
         {/* Primary CTA Buttons */}

@@ -87,7 +87,7 @@ export const WaitlistForm: React.FC<WaitlistFormProps> = ({ onSuccess }) => {
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8 sm:mb-10">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight">
-            Get early access to Campora Nigeria
+            Get early access to Dormiqa Nigeria
           </h2>
           <p className="text-sm sm:text-base text-[#78716C] mt-2">
             Be the first to browse verified student hostels and apartments near your campus when we launch.
@@ -329,10 +329,10 @@ export const WaitlistForm: React.FC<WaitlistFormProps> = ({ onSuccess }) => {
             </div>
           </div>
 
-          {/* How did you hear about Campora? */}
+          {/* How did you hear about Dormiqa? */}
           <div>
             <label htmlFor="referralSource" className="block text-xs font-bold text-[#0F172A] uppercase tracking-wider mb-2">
-              How did you hear about Campora?
+              How did you hear about Dormiqa?
             </label>
             <select
               id="referralSource"
@@ -367,7 +367,7 @@ export const WaitlistForm: React.FC<WaitlistFormProps> = ({ onSuccess }) => {
               )}
             </button>
             <p className="text-[11px] text-center text-[#78716C] mt-2.5">
-              By joining, you agree to receive launch updates from Campora Nigeria. No spam, unsubscribe anytime.
+              By joining, you agree to receive launch updates from Dormiqa Nigeria. No spam, unsubscribe anytime.
             </p>
           </div>
         </form>

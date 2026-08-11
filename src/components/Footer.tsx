@@ -14,7 +14,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onAdminClick }) => 
         <div className="text-center md:text-left">
           <Logo className="justify-center md:justify-start" />
           <p className="text-xs text-[#78716C] mt-2 font-medium">
-            Verified student accommodation, simplified.
+            Student accommodation, made simpler.
           </p>
         </div>
 
@@ -48,7 +48,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal, onAdminClick }) => 
 
         {/* Right: Copyright */}
         <div className="flex items-center gap-4 text-xs text-[#78716C]">
-          <span>&copy; {new Date().getFullYear()} Campora. All Rights Reserved.</span>
+          <span>&copy; {new Date().getFullYear()} Dormiqa. All Rights Reserved.</span>
         </div>
       </div>
     </footer>

@@ -26,7 +26,7 @@ export const LegalModals: React.FC<ModalProps> = ({ type, onClose }) => {
               <h3>Privacy Policy</h3>
             </div>
             <p className="leading-relaxed">
-              At <strong>Campora</strong>, we respect your privacy and are committed to protecting your personal data in accordance with applicable data protection laws.
+              At <strong>Dormiqa</strong>, we respect your privacy and are committed to protecting your personal data in accordance with applicable data protection laws.
             </p>
             <h4 className="font-bold text-[#0F172A] pt-1">1. Information We Collect</h4>
             <p className="leading-relaxed">
@@ -38,7 +38,7 @@ export const LegalModals: React.FC<ModalProps> = ({ type, onClose }) => {
             </p>
             <h4 className="font-bold text-[#0F172A] pt-1">3. Data Protection & Security</h4>
             <p className="leading-relaxed">
-              We do not sell, rent, or trade your personal data with third-party advertisers. All information submitted to Campora is stored securely on encrypted cloud storage systems.
+              We do not sell, rent, or trade your personal data with third-party advertisers. All information submitted to Dormiqa is stored securely on encrypted cloud storage systems.
             </p>
             <h4 className="font-bold text-[#0F172A] pt-1">4. Contact Us Regarding Privacy</h4>
             <p className="leading-relaxed">
@@ -54,11 +54,11 @@ export const LegalModals: React.FC<ModalProps> = ({ type, onClose }) => {
               <h3>Terms of Service</h3>
             </div>
             <p className="leading-relaxed">
-              Welcome to <strong>Campora</strong>. By registering on our waitlist or using our platform, you agree to comply with the following terms and conditions.
+              Welcome to <strong>Dormiqa</strong>. By registering on our waitlist or using our platform, you agree to comply with the following terms and conditions.
             </p>
             <h4 className="font-bold text-[#0F172A] pt-1">1. Scope of Waitlist Service</h4>
             <p className="leading-relaxed">
-              Joining the Campora waitlist provides early access and priority notifications for verified student housing near tertiary institutions across Nigeria. Registration does not guarantee room availability or lease agreements.
+              Joining the Dormiqa waitlist provides early access and priority notifications for verified student housing near tertiary institutions across Nigeria. Registration does not guarantee room availability or lease agreements.
             </p>
             <h4 className="font-bold text-[#0F172A] pt-1">2. Accurate Information</h4>
             <p className="leading-relaxed">
@@ -66,7 +66,7 @@ export const LegalModals: React.FC<ModalProps> = ({ type, onClose }) => {
             </p>
             <h4 className="font-bold text-[#0F172A] pt-1">3. Property & Agent Verification</h4>
             <p className="leading-relaxed">
-              Campora conducts physical inspections and identity checks on listings and agents to prevent fraudulent property claims. Students are advised to perform standard due diligence prior to making personal lease commitments.
+              Dormiqa conducts physical inspections and identity checks on listings and agents to prevent fraudulent property claims. Students are advised to perform standard due diligence prior to making personal lease commitments.
             </p>
             <h4 className="font-bold text-[#0F172A] pt-1">4. Service Modifications</h4>
             <p className="leading-relaxed">
@@ -79,7 +79,7 @@ export const LegalModals: React.FC<ModalProps> = ({ type, onClose }) => {
           <div className="space-y-4 text-xs sm:text-sm text-[#57534E]">
             <div className="flex items-center gap-2 text-[#0F172A] font-bold text-lg border-b border-[#E7E5E4] pb-3">
               <Mail className="w-5 h-5 text-[#0D9488]" />
-              <h3>Contact Campora Team</h3>
+              <h3>Contact Dormiqa Team</h3>
             </div>
             <p className="leading-relaxed">
               Have questions about off-campus student housing, or need assistance with your waitlist entry? Reach out to our team:

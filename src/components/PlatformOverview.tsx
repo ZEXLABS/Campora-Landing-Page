@@ -31,11 +31,11 @@ export const PlatformOverview: React.FC<PlatformOverviewProps> = ({ onJoinClick 
             What We Are &amp; What We Do
           </h2>
           <p className="text-sm sm:text-base text-[#78716C] mt-3 leading-relaxed">
-            Campora is a brand new digital student housing platform designed specifically for Nigerian university, polytechnic, and college students. We bridge the gap between students seeking safe off-campus housing and verified campus landlords &amp; agents.
+            Dormiqa is a brand new digital student housing platform designed specifically for Nigerian university, polytechnic, and college students. We bridge the gap between students seeking safe off-campus housing and verified campus landlords &amp; agents.
           </p>
         </div>
 
-        {/* COMPARISON: OLD WAY VS CAMPORA WAY */}
+        {/* COMPARISON: OLD WAY VS DORMIQA WAY */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {/* Old Frustrating Way */}
           <div className="bg-[#FFF8F8] border border-rose-200 p-6 sm:p-8 rounded-2xl">
@@ -63,11 +63,11 @@ export const PlatformOverview: React.FC<PlatformOverviewProps> = ({ onJoinClick 
             </ul>
           </div>
 
-          {/* The Campora Solution */}
+          {/* The Dormiqa Solution */}
           <div className="bg-[#F0FDF4] border border-emerald-200 p-6 sm:p-8 rounded-2xl">
             <div className="flex items-center gap-2 text-emerald-800 font-bold text-base mb-4">
               <CheckCircle2 className="w-5 h-5 text-emerald-600" />
-              <span>What Campora Does Differently</span>
+              <span>What Dormiqa Does Differently</span>
             </div>
             <ul className="space-y-3.5 text-xs sm:text-sm text-[#065F46]">
               <li className="flex items-start gap-2.5">
@@ -97,7 +97,7 @@ export const PlatformOverview: React.FC<PlatformOverviewProps> = ({ onJoinClick 
               Built Around What Students Actually Need
             </h3>
             <p className="text-xs sm:text-sm text-[#78716C] mt-1">
-              Four pillars guiding the new Campora platform architecture.
+              Four pillars guiding the new Dormiqa platform architecture.
             </p>
           </div>
 
@@ -151,7 +151,7 @@ export const PlatformOverview: React.FC<PlatformOverviewProps> = ({ onJoinClick 
               Supporting All Nigerian Tertiary Institutions
             </h3>
             <p className="text-xs sm:text-sm text-[#78716C] mt-2">
-              Whether you attend a Federal University, State University, Private University, Polytechnic, or College of Education — Campora is coming to your campus.
+              Whether you attend a Federal University, State University, Private University, Polytechnic, or College of Education — Dormiqa is coming to your campus.
             </p>
           </div>
 
